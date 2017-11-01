@@ -17,10 +17,12 @@
              </div>
              <div>
               <select id="pelajaran" name="pelajaran" class="required" required="">
+
                 <option value="">- Pilih pelajaran -</option>
                 @foreach($pelajaran as $pelajaran) 
                 <option value='{{$pelajaran->id}}'>{{$pelajaran->Pelajaran}}</option>
                 @endforeach
+                
               </select>
             </div>
           </div><br>

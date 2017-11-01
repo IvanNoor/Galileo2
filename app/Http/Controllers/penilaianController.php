@@ -66,10 +66,28 @@ class penilaianController extends Controller
 		$benar 		= 0;
 		$salah 		= 0;
 
+		$idPelajaran = DB::table('kode_soal')
+		->select('id_pelajaran')
+		->where('kode','=',$request->kode)
+		->value('id_pelajaran');
+
 		$pelajaran = DB::table('kode_soal')
 		->select('id_pelajaran')
 		->where('kode','=',$request->kode)
 		->value('id_pelajaran');
+
+		$nilai4 = DB::table('detail_nilai')
+		->where([
+			['id_siswa','=',$request->nama],
+			['id_pelajaran','=',$idPelajaran]
+		])
+		->value('nilai4'); 
+		if ($nilai4 != null) {
+			return view('penilaian/index');
+		}else{
+
+		}
+
 		
 
 		for ($i=1; $i<=10; $i++) { 
@@ -143,28 +161,59 @@ class penilaianController extends Controller
 		->select('id_pelajaran')
 		->where('kode','=',$request->kode)
 		->value('id_pelajaran');
-		for ($i=1; $i<=4 ; $i++) {
-			${"nilai".$i} = DB::table('detail_nilai')
-			->select(${"nilai".$i})
-			->where([
-				['id_siswa','=',$request->nama],
-				['id_pelajaran','=',$idPelajaran]
-			])
-			->value('nilai'); 
-			if (${"nilai".$i}!==null) {
-				$i+=0;
-			}else {
+		
+		$nilai1 = DB::table('detail_nilai')
+		->where([
+			['id_siswa','=',$request->nama],
+			['id_pelajaran','=',$idPelajaran]
+		])
+		->value('nilai1'); 
+		$nilai2 = DB::table('detail_nilai')
+		->where([
+			['id_siswa','=',$request->nama],
+			['id_pelajaran','=',$idPelajaran]
+		])
+		->value('nilai2'); 
+		$nilai3 = DB::table('detail_nilai')
+		->where([
+			['id_siswa','=',$request->nama],
+			['id_pelajaran','=',$idPelajaran]
+		])
+		->value('nilai3'); 
+			
+			if ( $nilai1 ==null) {
 				DB::table('detail_nilai')
 				->where([
 					['id_siswa','=',$request->nama],
 					['id_pelajaran','=',$idPelajaran]
 				])
-				->update(['${"nilai".$i}'=> $skor]);
-				$i=4;
-			}
-		}
+				->update([ 'nilai1' => $skor]);
 
-		return view('penilaian/index');
+			}elseif ($nilai2 == null) {
+				DB::table('detail_nilai')
+				->where([
+					['id_siswa','=',$request->nama],
+					['id_pelajaran','=',$idPelajaran]
+				])
+				->update([ 'nilai2' => $skor]);
+			}elseif ($nilai3 == null) {
+				DB::table('detail_nilai')
+				->where([
+					['id_siswa','=',$request->nama],
+					['id_pelajaran','=',$idPelajaran]
+				])
+				->update([ 'nilai3' => $skor]);
+			}elseif ($nilai4 == null) {
+				DB::table('detail_nilai')
+				->where([
+					['id_siswa','=',$request->nama],
+					['id_pelajaran','=',$idPelajaran]
+				])
+				->update([ 'nilai4' => $skor]);
+			}else{
+				return view('penilaian');
+			}
+		return view('penilaian/create',['pelajaran' => $pelajaran]);
 	}
 
 
