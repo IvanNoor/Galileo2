@@ -13,7 +13,7 @@ use App\pelajaran;
 use Illuminate\Http\Request;
 use Session;
 
-class siswaController extends Controller
+class raportController extends Controller
 {
 
     /**
@@ -24,7 +24,7 @@ class siswaController extends Controller
     public function index(Request $request)
     {
         $siswa = siswa::all();
-        return view('siswa/index',['siswa' => $siswa]);
+        return view('raport/index',['siswa' => $siswa]);
     }
 
     /**
@@ -32,9 +32,30 @@ class siswaController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function create()
+    public function check($id)
     {
-        return view('siswa/create');
+
+        $detail_nilai = DB::table('detail_nilai')
+        ->where('id_siswa','=',$id)
+        ->get();
+
+        $nilai = DB::table('detail_nilai')
+        ->where('id_siswa','=',$id)
+        ->get()->toArray();
+
+        var_dump($nilai);
+        foreach ($nilai as $nilai) {
+            echo "$nilai";
+        }
+            // while ($row = mysql_fetch_array($nilai)) {
+            //     $nilai1 = $row['nilai1'];
+            //     $nilai2 = $row['nilai2'];
+            //     $nilai3 = $row['nilai3'];
+            //     $nilai4 = $row['nilai4'];
+            // }            
+            // dd($skor1);   
+        
+        return view('raport/check',['detail_nilai' => $detail_nilai]);
     }
 
     /**
@@ -46,33 +67,8 @@ class siswaController extends Controller
      */
     public function store(Request $request)
     {
-        $siswa                  = new siswa;
-        $siswa->Nama            = $request->nama;
-        $siswa->SekolahAsal     = $request->sekolahAsal;
-        $siswa->Kelas           =$request->kelas;
-        $siswa->Alamat          =$request->alamat;
-        $siswa->JenisKelamin    =$request->kelamin;
-        $siswa->Prestasi        =$request->prestasi;
-        $siswa->OrangTua        =$request->orangTua;
-        $siswa->Contact         =$request->contact;
-        $siswa->save();
 
 
-        $idSiswa = DB::table('siswas')
-        ->select('id_siswa')
-        ->where([
-            ['Nama','=',$request->nama],
-            ['Alamat','=',$request->alamat]
-        ])
-        ->value('id_siswa');
-
-        $pelajaran = pelajaran::all();
-        foreach ($pelajaran as $pelajaran) {
-            $detail_nilai                 = new detail_nilai;
-            $detail_nilai->id_pelajaran   = $pelajaran->id;
-            $detail_nilai->id_siswa       = $idSiswa;
-            $detail_nilai->save();
-        }
 
 
         return redirect('siswa');
@@ -137,6 +133,7 @@ class siswaController extends Controller
     {
 
         siswa::destroy($id);
+
         detail_nilai::where('id_siswa',$id)->delete();
 
         Session::flash('flash_message', 'siswa deleted!');

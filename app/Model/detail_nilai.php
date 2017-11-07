@@ -9,5 +9,7 @@ class detail_nilai extends Model
         protected $table = 'detail_nilai';
         
         public $timestamps = false;
+
+        protected $primaryKey = 'id_detail';
         
 }

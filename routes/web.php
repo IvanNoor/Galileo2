@@ -18,7 +18,7 @@ Route::get('/', function () {
 
 Route::get('penilaian_siswa','penilaianController@index');
 Route::get('penilaian_siswa/create','penilaianController@create'); //route untuk create
-Route::post('penilaian_siswa','penilaianController@store');
+Route::post('penilaian_siswa','penilaianController@store'); 
 Route::get('penilaian_siswa/check','penilaianController@check_kode');
 Route::post('penilaian_siswa/check','penilaianController@checking');
 
@@ -28,6 +28,8 @@ Route::get('siswa/create','siswaController@create');
 Route::post('siswa','siswaController@store');
 Route::delete('/siswa/{id}','siswaController@destroy');
 
+Route::get('raport','raportController@index');
+Route::get('/raport/{id}/check','raportController@check');
 
 Route::resource('post', 'PostsController');
 

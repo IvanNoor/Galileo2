@@ -71,10 +71,7 @@ class penilaianController extends Controller
 		->where('kode','=',$request->kode)
 		->value('id_pelajaran');
 
-		$pelajaran = DB::table('kode_soal')
-		->select('id_pelajaran')
-		->where('kode','=',$request->kode)
-		->value('id_pelajaran');
+		$pelajaran = pelajaran::all();
 
 		$nilai4 = DB::table('detail_nilai')
 		->where([
@@ -83,12 +80,10 @@ class penilaianController extends Controller
 		])
 		->value('nilai4'); 
 		if ($nilai4 != null) {
-			return view('penilaian/index');
+			return view('penilaian/create',['pelajaran' => $pelajaran]);
 		}else{
 
 		}
-
-		
 
 		for ($i=1; $i<=10; $i++) { 
 			//deklarasi variabel
@@ -152,10 +147,7 @@ class penilaianController extends Controller
 				['jawaban_benar'=> ${"skor_benar".$i}]
 			);
 		}
-		
-		
 		$skor = $benar * 10;
-
 
 		$idPelajaran = DB::table('kode_soal')
 		->select('id_pelajaran')
@@ -215,6 +207,4 @@ class penilaianController extends Controller
 			}
 		return view('penilaian/create',['pelajaran' => $pelajaran]);
 	}
-
-
 }
