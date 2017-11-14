@@ -28,6 +28,7 @@
 							</tr>
 						</thead>
 						<tbody>
+							<?php $i=0;?>
 							@foreach($detail_nilai as $detail_nilai)
 							<tr>
 								<td>
@@ -49,13 +50,14 @@
 									{{$detail_nilai->nilai4}}
 								</td>
 								<td>
-									
+									{{$nilaiTotal[$i]}}	
+									<?php $i+=1;?>
 								</td>
 							</tr>
 							@endforeach
 						</tbody>
 					</table>
-					<a href="/siswa/create" class="btn btn-success"  role="button">TAMBAH BARU</a>
+					
 				</div>    
 			</div>
 
