@@ -2,10 +2,15 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Pegawai extends Model
+class Pegawai extends Authenticatable
 {
+    use Notifiable;
+ 
+    protected $guard = 'admin';
+
     /**
      * The database table used by the model.
      *
@@ -25,7 +30,7 @@ class Pegawai extends Model
      *
      * @var array
      */
-    protected $fillable = ['Nama', 'Alamat', 'JenisKelamin', 'TempatLahir', 'TglLahir', 'NoKtp'];
+    protected $fillable = ['Nama', 'Alamat', 'JenisKelamin', 'TempatLahir', 'TglLahir', 'NoKtp','Jabatan' ,'Password'];
 
     
 }

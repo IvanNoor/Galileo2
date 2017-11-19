@@ -20,3 +20,78 @@ table th{
 select{
 	color: blue;
 }
+.select {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 15px;
+}    .select select {
+        font-family: 'Arial';
+        display: inline-block;
+   
+        cursor: pointer;
+        padding: 3px 14px;
+        outline: 0;
+        border: 0px double #000000;
+        border-radius: 8px;
+         width: 200px;
+        background: #39BCF8;
+        color: #FFFFFF;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
+        .select select::-ms-expand {
+            display: none;
+        }
+        .select select:hover,
+        .select select:focus {
+            color: #FFFFFF;
+            background: #393939;
+        }
+        .select select:disabled {
+            opacity: 1;
+            pointer-events: none;
+        }
+.select_arrow {
+    position: absolute;
+    top: 12px;
+    right: 11px;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    border-style: solid;
+    border-width: 8px 5px 0px 5px;
+    border-color: #4B4B4B transparent transparent transparent;
+}
+.select select:hover ~ .select_arrow,
+.select select:focus ~ .select_arrow {
+    border-top-color: #FFFFFF;
+}
+.select select:disabled ~ .select_arrow {
+    border-top-color: #909090;
+}
+.text {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 15px;
+}    .text text {
+        font-family: 'Arial';
+        display: inline-block;
+         width: 200px;
+        background: #39BCF8;
+        color: #FFFFFF;
+    }
+        .text text::-ms-expand {
+            display: none;
+        }
+        .text text:hover,
+        .text text:focus {
+            color: #FFFFFF;
+            background: #393939;
+        }
+        .text text:disabled {
+            opacity: 1;
+            pointer-events: none;
+        }
+
+

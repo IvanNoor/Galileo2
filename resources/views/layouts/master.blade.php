@@ -27,7 +27,7 @@
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"  id="menu-toggle">
               <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>
           </button>
-          <a class="navbar-brand" href="#"><i class="fa fa-rocket fa-4"></i>LOGO</a>        
+          <a class="navbar-brand" href="#"><i class="fa fa-rocket fa-4"></i>GALILEO</a>        
       </div><!-- navbar-header-->
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -41,35 +41,18 @@
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
 
-            <li class="active">
-                <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-dashboard fa-stack-1x "></i></span> Dashboard</a>
+            <li>
+                <a href="{{ url('/pegawai') }}"><span class="fa-stack fa-lg pull-left"><i class="fa fa-cloud-download fa-stack-1x "></i></span>Data Pegawai</a>
+            </li>
+            <li>
+                <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span> Akademik</a>
                 <ul class="nav-pills nav-stacked" style="list-style-type:none;">
-                    <li><a href="#">link1</a></li>
-                    <li><a href="#">link2</a></li>
+                    <li><a href="{{ url('/siswa') }}"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span>Siswa</a></li>
+                    <li><a href="{{ url('/pelajaran') }}"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span>Pelajaran</a></li>
+                    <li><a href="{{ url('/raport') }}"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span>Raport</a></li>
+                    <li><a href="{{ url('/penilaian_siswa') }}"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span>Penilaian</a></li>
+                    <li><a href="{{ url('/bobot_soal') }}"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span>Bobot Soal</a></li>
                 </ul>
-            </li>
-            <li>
-                <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span> Shortcut</a>
-                <ul class="nav-pills nav-stacked" style="list-style-type:none;">
-                    <li><a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span>link1</a></li>
-                    <li><a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span>link2</a></li>
-
-                </ul>
-            </li>
-            <li>
-                <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-cloud-download fa-stack-1x "></i></span>Overview</a>
-            </li>
-            <li>
-                <a href="#"> <span class="fa-stack fa-lg pull-left"><i class="fa fa-cart-plus fa-stack-1x "></i></span>Events</a>
-            </li>
-            <li>
-                <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-youtube-play fa-stack-1x "></i></span>About</a>
-            </li>
-            <li>
-                <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-wrench fa-stack-1x "></i></span>Services</a>
-            </li>
-            <li>
-                <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-server fa-stack-1x "></i></span>Contact</a>
             </li>
         </ul>
     </div><!-- /#sidebar-wrapper -->

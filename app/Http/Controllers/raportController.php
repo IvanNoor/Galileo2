@@ -24,10 +24,13 @@ class raportController extends Controller
     public function check($id)
     {
 
-        $detail_nilai = DB::table('detail_nilai')
-        ->where('id_siswa','=',$id)
+        $detail_nilai2 = DB::table('detail_nilai')
+        ->join('siswas', 'siswas.id_siswa', '=', 'detail_nilai.id_siswa')
+        ->join('pelajarans', 'pelajarans.id', '=', 'detail_nilai.id_pelajaran')
+        ->select('Nama','Pelajaran','detail_nilai.*')
+        ->where('siswas.id_siswa','=',$id)
         ->get();
-
+        
         $jumlahDetail = DB::table('detail_nilai')
         ->where('id_siswa','=',$id)
         ->get()->count();
@@ -42,8 +45,13 @@ class raportController extends Controller
                                 $nilai[$i]->nilai3+
                                 $nilai[$i]->nilai4;
         }
-     return view('raport/check',['detail_nilai' => $detail_nilai,'nilaiTotal' => $nilaiTotal]);
+     return view('raport/check',['detail_nilai2' => $detail_nilai2,'detail_nilai' => $detail_nilai2 ,'nilaiTotal' => $nilaiTotal]);
     }
-
-    
+    public function penjurusan($id)
+    {
+        $siswa = DB::table('siswas')
+        ->where('id_siswa','=',$id)
+        ->get();
+        dd($siswa);
+    }
 }

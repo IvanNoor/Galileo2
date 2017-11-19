@@ -15,13 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-Route::get('penilaian_siswa','penilaianController@index');//penilaian siswa //masih useles
+//guru
+Route::get('penilaian_siswa','penilaianController@index');//penilaian siswa //masih useles 
 Route::get('penilaian_siswa/create','penilaianController@create'); //route untuk create
 Route::post('penilaian_siswa','penilaianController@store'); 
 Route::get('penilaian_siswa/check','penilaianController@check_kode');
 Route::post('penilaian_siswa/check','penilaianController@checking');
-
 
 Route::get('siswa','siswaController@index');//siswa
 Route::get('siswa/create','siswaController@create');
@@ -30,19 +29,18 @@ Route::delete('/siswa/{id}','siswaController@destroy');
 
 Route::get('raport','raportController@index');//raport
 Route::get('/raport/{id}/check','raportController@check');
+Route::get('/raport/{id}/penjurusan','raportController@penjurusan');
 
 Route::get('bobot_soal','bobotController@index');//bobot soal
-Route::get('bobot_soal/search','bobotController@search');
+Route::get('bobot_soal/{id}/search','bobotController@search');
 
-Route::get('penjurusan','penjurusanController@index');//bobot soal
-
-
+//admin
+Route::get('penjurusan','penjurusanController@index');//penjurusan
+Route::get('penjurusan/create','penjurusanController@create');
+Route::post('penjurusan','penjurusanController@store'); 
 
 Route::resource('pegawai', 'PegawaiController');
 Route::resource('pelajaran', 'PelajaranController');
-
-
-
 
 // kumpulan route useles
 Route::resource('post', 'PostsController');
@@ -51,3 +49,7 @@ Route::resource('posts', 'PostsController');
 //Route::resource('siswa', 'siswaController');
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

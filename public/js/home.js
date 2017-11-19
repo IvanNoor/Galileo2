@@ -44,3 +44,6 @@ $('.sel__box__options').click(function() {
   $currentSel.children('.sel__placeholder').text(txt);
   $currentSel.children('select').prop('selectedIndex', index + 1);
 });
+
+
+

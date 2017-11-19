@@ -52,6 +52,21 @@
 
                     <div class="row">
                         <div class="col-md-6">
+                            <label for="Jurusan">Jurusan</label>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="input-field col-md-6    ">
+                                <select id="Jurusan" name="Jurusan" class="required" required="">
+                                    <option value="">- Pilih  Jurusan-</option>
+                                    <option value="IPA">IPA</option>
+                                    <option value="IPS">IPS</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div><br>
+
+                    <div class="row">
+                        <div class="col-md-6">
                             <label for="alamat">Alamat :</label>
                         </div>
                         <div class="col-md-4">
@@ -107,6 +122,17 @@
                         <div class="col-md-4">
                             <div class="input-field col-md-12">
                                 <input type="text" class="form-control col-md-6" id="contact" name="contact">
+                            </div>
+                        </div>
+                    </div><br>
+
+                     <div class="row">
+                        <div class="col-md-6">
+                            <label for="alamat">Password :</label>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="input-field col-md-12    ">
+                                <input type="password" class="form-control col-md-6" id="alamat" name="alamat">
                             </div>
                         </div>
                     </div><br>

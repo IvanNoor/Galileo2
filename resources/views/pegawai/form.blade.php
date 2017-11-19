@@ -25,7 +25,7 @@
         {!! $errors->first('TempatLahir', '<p class="help-block">:message</p>') !!}
     </div>
 </div><div class="form-group {{ $errors->has('TglLahir') ? 'has-error' : ''}}">
-    {!! Form::label('TglLahir', 'Tgllahir', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('TglLahir', 'Tgl lahir', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
         {!! Form::date('TglLahir', null, ['class' => 'form-control']) !!}
         {!! $errors->first('TglLahir', '<p class="help-block">:message</p>') !!}
@@ -35,6 +35,12 @@
     <div class="col-md-6">
         {!! Form::text('NoKtp', null, ['class' => 'form-control']) !!}
         {!! $errors->first('NoKtp', '<p class="help-block">:message</p>') !!}
+    </div>
+</div><div class="form-group {{ $errors->has('Password') ? 'has-error' : ''}}">
+    {!! Form::label('Password', 'Password', ['class' => 'col-md-4 control-label']) !!}
+    <div class="col-md-6">
+        {!! Form::password('Password', null, ['class' => 'form-control']) !!}
+        {!! $errors->first('Password', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
 

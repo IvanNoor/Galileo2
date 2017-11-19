@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 namespace App\Http\Controllers;
 
@@ -8,34 +8,42 @@ use App\Http\Controllers\Controller;
 use DB;
 DB::enableQueryLog();
 
-use App\Model\penilaian;
 use App\pelajaran;
+use App\Model\Penilaian;
 use Illuminate\Http\Request;
 use Session;
 
 class bobotController extends Controller
 {
 
-   
+
     public function index(Request $request)
     {
         $penilaian = penilaian::all();
-        return view('bobotSoal/index',['penilaian' => $penilaian]);
+        $penilaian2 = DB::table('penilaian')
+        ->join('kode_soal', 'kode_soal.kode', '=', 'penilaian.kode')
+        ->join('pelajarans', 'pelajarans.id', '=', 'kode_soal.id_pelajaran')
+        ->select('penilaian.kode', 'pelajarans.Pelajaran')
+        ->groupBy('kode','pelajaran')
+        ->get();
+            
+        
+
+        return view('bobotSoal/index',['penilaian' => $penilaian,'penilaian2' => $penilaian2]);
     }
-    public function search(Request $request)
+    public function search($id)
     {
-    	dd($request);
-    	
-    // 	$keyword = $request->get('search');
-    //     $perPage = 25;
+        $penilaian = penilaian::where('kode', 'LIKE', $id)->get();
+        $penilaian2 = DB::table('penilaian')
+        ->join('kode_soal', 'kode_soal.kode', '=', 'penilaian.kode')
+        ->join('pelajarans', 'pelajarans.id', '=', 'kode_soal.id_pelajaran')
+        ->select('penilaian.kode', 'pelajarans.Pelajaran')
+        ->groupBy('kode','pelajaran')
+        ->get();
+        
 
-    //     if (!empty($keyword)) {
-    //         $penilaian = penilaian::where('kode', 'LIKE', "%$keyword%")
-				// ->paginate($perPage);
-    //     } else {
-    //         $penilaian = penilaian::paginate($perPage);
-    //     }
+        return view('bobotSoal/index',['penilaian' => $penilaian,'penilaian2' => $penilaian2]);
     }
 
-   
+
 }
