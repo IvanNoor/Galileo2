@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class siswa extends Model
 {
@@ -25,7 +26,7 @@ class siswa extends Model
      *
      * @var array
      */
-    protected $fillable = ['Nama', 'SekolahAsal','Kelas','Alamat','Prestasi','OrangTua','Contact',' JenisKelamin'];
+    protected $fillable = ['Nama', 'SekolahAsal','Kelas','Alamat','Prestasi','OrangTua','Contact','Password',' JenisKelamin'];
 
     
 }

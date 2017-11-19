@@ -29,39 +29,71 @@
 						</thead>
 						<tbody>
 							<?php $i=0;?>
-							@foreach($detail_nilai as $detail_nilai)
+							@foreach($detail_nilai2 as $detail_nilai2)
 							<tr>
 								<td>
-									{{$detail_nilai->id_siswa}}
+									{{$detail_nilai2->Nama}}
 								</td>
 								<td>
-									{{$detail_nilai->id_pelajaran}}
+									{{$detail_nilai2->Pelajaran}}
 								</td>
 								<td>
-									{{$detail_nilai->nilai1}}
+									{{$detail_nilai2->nilai1}}
 								</td>
 								<td>
-									{{$detail_nilai->nilai2}}
+									{{$detail_nilai2->nilai2}}
 								</td>
 								<td>
-									{{$detail_nilai->nilai3}}
+									{{$detail_nilai2->nilai3}}
 								</td>
 								<td>
-									{{$detail_nilai->nilai4}}
+									{{$detail_nilai2->nilai4}}
 								</td>
 								<td>
 									{{$nilaiTotal[$i]}}	
 									<?php $i+=1;?>
 								</td>
+								
 							</tr>
-							@endforeach
+							@endforeach	
 						</tbody>
 					</table>
-					
 				</div>    
 			</div>
 
 		</div>
 	</div>
+</div><br><br>
+<div class="container" >
+	<div class="row">
+		<div class="col-md-6"></div>
+		<div class="col-md-4" style="background-color: skyblue">
+			<table>
+				<thead>
+					<tr>
+						<?php $n=0;$passing=0; ?>
+					@foreach($detail_nilai as $detail_nilai)
+						<?php $n+=1; ?>
+						<td>{{$detail_nilai->Pelajaran}}</td>
+					@endforeach
+					<td>Passing Grade </td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						@for($j=0; $j<$n ; $j++)
+						<td>{{$nilaiTotal[$j]}}</td>
+						<?php $passing+=$nilaiTotal[$j]; ?>
+						@endfor
+						<td>{{$passing}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+<a href="/raport/{{$detail_nilai2->id_siswa}}/penjurusan" class="btn btn-success " style="padding: 1px 15px;" role="button">Penjurusan</a>
+		<div class="col-md-2"></div>
+
+	</div>
+	
 </div>
 @endsection

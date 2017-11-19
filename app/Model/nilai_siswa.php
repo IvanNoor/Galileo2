@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Model;
+// namespace App\Model;
 
-use Illuminate\Database\Eloquent\Model;
+// use Illuminate\Database\Eloquent\Model;
 
-class penilaian extends Model
-{
-        protected $table = 'nilai_siswa';
+// class penilaian extends Model
+// {
+//         protected $table = 'nilai_siswa';
         
-        public $timestamps = false;
-}
+//         public $timestamps = false;
+// }

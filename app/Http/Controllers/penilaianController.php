@@ -1,15 +1,15 @@
 <?php
 namespace App\Http\Controllers;
 
-use DB;
+use DB; 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\siswa;
 use App\pelajaran;
-use App\Model\penilaian;
+use App\Model\Penilaian;
 use App\Model\kode_soal;
-use App\Model\nilai_siswa;
+// use App\Model\nilai_siswa;
 use App\Model\detail_nilai;
 
 
@@ -25,7 +25,6 @@ class penilaianController extends Controller
 	public function create()
 	{
 		$pelajaran = pelajaran::all();
-
 		return view('penilaian/create',['pelajaran' => $pelajaran]);
 	}
 	public function check_kode(){
@@ -45,7 +44,7 @@ class penilaianController extends Controller
 		->get()->toArray();
 		$i+=1;	
 		}
-		dd($i);
+			
 		
 		
 		return view('penilaian/check',['penilaian' => $penilaian,'siswa'=>$siswa]);	
@@ -73,7 +72,7 @@ class penilaianController extends Controller
 				$penilaian->save();
 			}
 		}
-		return redirect('test');
+		return redirect('penilaian_siswa/check');
 	}
 	public function checking(Request $request){
 		//deklarasi variabel
@@ -116,6 +115,7 @@ class penilaianController extends Controller
 			])
 			->get()->toArray();
 
+			//check apakah jawaban benar atau salah
 			${"jawabanDB".$i} = ${"checking".$i}[0]->jawaban;
 
 			if (${"jawaban".$i} == ${"jawabanDB".$i}) {
@@ -125,6 +125,7 @@ class penilaianController extends Controller
 				$salah +=1;
 				${"salah".$i} +=1;
 			}
+
 
 			${"checking_benar".$i} = ${"checking".$i}[0]->jawaban_benar;
 			${"checking_salah".$i} = ${"checking".$i}[0]->jawaban_salah;

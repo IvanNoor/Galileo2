@@ -50,11 +50,13 @@ class siswaController extends Controller
         $siswa->Nama            = $request->nama;
         $siswa->SekolahAsal     = $request->sekolahAsal;
         $siswa->Kelas           =$request->kelas;
+        $siswa->Jurusan         =$request->Jurusan;
         $siswa->Alamat          =$request->alamat;
         $siswa->JenisKelamin    =$request->kelamin;
         $siswa->Prestasi        =$request->prestasi;
         $siswa->OrangTua        =$request->orangTua;
         $siswa->Contact         =$request->contact;
+        $siswa->Password        =$request->password;
         $siswa->save();
 
 
