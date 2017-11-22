@@ -85,7 +85,8 @@
 						<td>{{$nilaiTotal[$j]}}</td>
 						<?php $passing+=$nilaiTotal[$j]; ?>
 						@endfor
-						<td>{{$passing}}</td>
+						<?php $passingGrade = $passing/$n;?>
+						<td>{{$passingGrade}}</td>
 					</tr>
 				</tbody>
 			</table>

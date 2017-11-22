@@ -128,11 +128,11 @@
 
                      <div class="row">
                         <div class="col-md-6">
-                            <label for="alamat">Password :</label>
+                            <label for="password">Password :</label>
                         </div>
                         <div class="col-md-4">
                             <div class="input-field col-md-12    ">
-                                <input type="password" class="form-control col-md-6" id="alamat" name="alamat">
+                                <input type="password" class="form-control col-md-6" id="password" name="password">
                             </div>
                         </div>
                     </div><br>

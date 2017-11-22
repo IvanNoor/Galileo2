@@ -12,19 +12,19 @@
 		<div class="col-md-10">
 			<div class="panel-heading" style="background-color: azure">
 				<div class="panel-body">
-						<div class="row">
-							<div class="input-field col-sm-2">
-								<label for="pelajaran">pelajaran</label>
-							</div>
-							<div class="select col-sm-2">
-								<select id="kodeSoal" name="kodeSoal" class="required" required="" onchange="location = this.value;">
-									<option>- Pilih Kode Soal -</option>
-									@foreach($penilaian2 as $penilaian2) 
-									<option value="/bobot_soal/{{$penilaian2->kode}}/search">{{$penilaian2->kode}} {{$penilaian2->Pelajaran}}</option>
-									@endforeach
-								</select>
-								{{-- <a href="/bobot_soal/{{$penilaian2->kode}}/search" class="btn btno" role="button">EDIT</a> --}}
-							</div>
+					
+					<div class="row">
+						<div class="input-field col-sm-2">
+							<label for="pelajaran">pelajaran</label>
+						</div>
+						<div class="select col-sm-2">
+							<select id="kodeSoal" name="kodeSoal" class="required" required="" onchange="location = this.value;">
+								<option>- Pilih Kode Soal -</option>
+								@foreach($penilaian2 as $penilaian2) 
+								<option value="/bobot_soal/{{$penilaian2->kode}}/search">{{$penilaian2->kode}} {{$penilaian2->Pelajaran}}</option>
+								@endforeach
+							</select>
+						</div>
 						<table class="table table-striped">
 							<thead>
 								<tr>
@@ -54,9 +54,8 @@
 										@if($penilaian->jawaban_benar+$penilaian->jawaban_salah==0)
 										<b>0%</b>
 										@else
-										<b>{{
-											$penilaian->jawaban_benar/($penilaian->jawaban_benar+$penilaian->jawaban_salah)*100
-										}}%</b>
+										<?php $bobot = $penilaian->jawaban_benar/($penilaian->jawaban_benar+$penilaian->jawaban_salah)*100 ?>
+										<b> <?php echo number_format((float)$bobot, 1, '.', ''); ?> %</b>
 										@endif
 									</td>
 
