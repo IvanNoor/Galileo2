@@ -15,6 +15,8 @@
     <link href="/css/home.css" rel="stylesheet">
     <link href="/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
+
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     
@@ -61,22 +63,29 @@
         <div class="container-fluid xyz">
             <div class="row">
                 <div class="col-lg-8">
-                    @yield('content')            
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- /#page-content-wrapper -->
+                  @if(Session::has('message'))
+
+                  <p class="alert alert-info">{{ Session::get('message') }}</p>
+                  
+                  <?php Session()->flush(); ?>
+                  @endif
+                  @yield('content')            
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- /#page-content-wrapper -->
 
 </div>
 <!-- /#wrapper -->
 <!-- jQuery -->
 
-
 <script src="/js/jquery-1.11.2.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/sidebar_menu.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
 
 
 

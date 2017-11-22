@@ -26,9 +26,7 @@ class bobotController extends Controller
         ->select('penilaian.kode', 'pelajarans.Pelajaran')
         ->groupBy('kode','pelajaran')
         ->get();
-            
         
-
         return view('bobotSoal/index',['penilaian' => $penilaian,'penilaian2' => $penilaian2]);
     }
     public function search($id)
@@ -40,7 +38,8 @@ class bobotController extends Controller
         ->select('penilaian.kode', 'pelajarans.Pelajaran')
         ->groupBy('kode','pelajaran')
         ->get();
-        
+
+        Session::flash('message', 'This is a message!'); 
 
         return view('bobotSoal/index',['penilaian' => $penilaian,'penilaian2' => $penilaian2]);
     }

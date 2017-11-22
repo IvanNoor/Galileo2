@@ -46,6 +46,7 @@ class siswaController extends Controller
      */
     public function store(Request $request)
     {
+
         $siswa                  = new siswa;
         $siswa->Nama            = $request->nama;
         $siswa->SekolahAsal     = $request->sekolahAsal;
@@ -56,7 +57,7 @@ class siswaController extends Controller
         $siswa->Prestasi        =$request->prestasi;
         $siswa->OrangTua        =$request->orangTua;
         $siswa->Contact         =$request->contact;
-        $siswa->Password        =$request->password;
+        $siswa->Password        =bcrypt($request->password);
         $siswa->save();
 
 
