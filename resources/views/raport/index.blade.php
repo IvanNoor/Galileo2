@@ -3,13 +3,6 @@
 @section('title','blog lalala')
 
 @section('content')
-<script type="text/javascript">
-
-
-</script>
-<div class="alert alert-success">
-	<strong>Success!</strong> You ss <a href="#" class="alert-link">read this message</a>.
-</div>
 <div class="container">
 	<div class="row">
 		<div class="col-md-10">
@@ -50,7 +43,7 @@
 							@endforeach
 						</tbody>
 					</table>
-					<a href="/siswa/create" class="btn btn-success"  role="button">TAMBAH BARU</a>
+					
 				</div>    
 			</div>
 

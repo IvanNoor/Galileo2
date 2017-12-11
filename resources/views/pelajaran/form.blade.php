@@ -1,19 +1,19 @@
 <div class="form-group {{ $errors->has('Pelajaran') ? 'has-error' : ''}}">
-    {!! Form::label('Pelajaran', 'Pelajaran', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('Pelajaran', 'Pelajaran', ['required','class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('Pelajaran', null, ['class' => 'form-control']) !!}
+        {!! Form::text('Pelajaran', null, ['required','class' => 'form-control']) !!}
         {!! $errors->first('Pelajaran', '<p class="help-block">:message</p>') !!}
     </div>
 </div><div class="form-group {{ $errors->has('Kelas') ? 'has-error' : ''}}">
-    {!! Form::label('Kelas', 'Kelas', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('Kelas', 'Kelas', ['required','class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('Kelas', null, ['class' => 'form-control']) !!}
+        {!! Form::text('Kelas', null, ['required','class' => 'form-control']) !!}
         {!! $errors->first('Kelas', '<p class="help-block">:message</p>') !!}
     </div>
 </div><div class="form-group {{ $errors->has('Jurusan') ? 'has-error' : ''}}">
-    {!! Form::label('Jurusan', 'Jurusan', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('Jurusan', 'Jurusan', ['required','class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('Jurusan', null, ['class' => 'form-control']) !!}
+        {!! Form::text('Jurusan', null, ['required','class' => 'form-control']) !!}
         {!! $errors->first('Jurusan', '<p class="help-block">:message</p>') !!}
     </div>
 </div>

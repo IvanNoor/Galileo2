@@ -18,7 +18,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="input-field col-md-12">
-                                <input type="text" class="form-control col-md-12 " id="nama" name="nama">
+                                <input type="text" class="form-control col-md-12 " id="nama" name="nama" required="" required>
                             </div>
                         </div>
                     </div><br>
@@ -29,7 +29,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="input-field col-md-12    ">
-                                <input type="text" class="form-control col-md-6" id="sekolahAsal" name="sekolahAsal">
+                                <input type="text" class="form-control col-md-6" id="sekolahAsal" name="sekolahAsal" required="" required>
                             </div>
                         </div>
                     </div><br>
@@ -71,7 +71,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="input-field col-md-12    ">
-                                <input type="text" class="form-control col-md-6" id="alamat" name="alamat">
+                                <input type="text" class="form-control col-md-6" id="alamat" name="alamat" required="" required>
                             </div>
                         </div>
                     </div><br>
@@ -110,7 +110,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="input-field col-md-12">
-                                <input type="text" class="form-control col-md-6" id="orangTua" name="orangTua">
+                                <input type="text" class="form-control col-md-6" id="orangTua" name="orangTua" required="" required>
                             </div>
                         </div>
                     </div><br>
@@ -121,7 +121,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="input-field col-md-12">
-                                <input type="text" class="form-control col-md-6" id="contact" name="contact">
+                                <input type="text" class="form-control col-md-6" id="contact" name="contact" required="" required>
                             </div>
                         </div>
                     </div><br>
@@ -132,7 +132,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="input-field col-md-12    ">
-                                <input type="password" class="form-control col-md-6" id="password" name="password">
+                                <input type="password" class="form-control col-md-6" id="password" name="password" required="" required>
                             </div>
                         </div>
                     </div><br>

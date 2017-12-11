@@ -3,13 +3,6 @@
 @section('title','blog lalala')
 
 @section('content')
-<script type="text/javascript">
-
-
-</script>
-<div class="alert alert-success">
-	<strong>Success!</strong> You should <a href="#" class="alert-link">read this message</a>.
-</div>
 <div class="container">
 	<div class="row">
 		<div class="col-md-10">
@@ -45,13 +38,7 @@
               </td>
               <td>
 
-              <a href="/penjurusan/{{$penjurusan->id_siswa}}/edit" class="btn btn-success btn-xs" style="padding: 0px 15px;" role="button">EDIT</a>
-
-              <form action="/penjurusan/{{$penjurusan->id_siswa}}" method="post">
-                <input type="submit" name="submit" value="DELETE" class="btn btn-danger btn-xs">
-                {{ csrf_field() }}
-                <input type="hidden" name="_method" value="DELETE">
-              </form> 
+              <a href="/penjurusan/{{$penjurusan->id}}/edit" class="btn btn-success btn-xs" style="padding: 0px 15px;" role="button">EDIT</a>
             </td>
           </tr>
           @endforeach

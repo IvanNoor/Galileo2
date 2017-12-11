@@ -15,7 +15,7 @@
               <div class="input-field col-sm-2">
                <label for="nama">Nama Siswa</label>
              </div>
-             <div>
+             <div class="select">
                <select id="nama" name="nama" class="required" required="">
                 <option value="">- Pilih siswa -</option>
                 @foreach($siswa as $siswa) 
@@ -29,11 +29,11 @@
               <div class="input-field col-sm-2">
                <label for="kode">Kode Soal</label>
              </div>
-             <div>
+             <div class="select">
                <select id="kode" name="kode" class="required" required="">
                 <option value="">- Pilih kode -</option>
                 @foreach($penilaian as $penilaian) 
-                <option value='{{$penilaian->kode}}'>{{$penilaian->kode}}</option>
+                <option value='{{$penilaian->kode}}'>{{$penilaian->kode}} {{$penilaian->Pelajaran}}</option>
                 @endforeach
               </select>
             </div>

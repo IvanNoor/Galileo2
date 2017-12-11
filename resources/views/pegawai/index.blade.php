@@ -39,19 +39,14 @@
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->Nama }}</td><td>{{ $item->Alamat }}</td><td>{{ $item->JenisKelamin }}</td>
                                         <td>
-                                            <a href="{{ url('/pegawai/' . $item->id) }}" title="View Pegawai"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                                            
                                             <a href="{{ url('/pegawai/' . $item->id . '/edit') }}" title="Edit Pegawai"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
                                             {!! Form::open([
                                                 'method'=>'DELETE',
                                                 'url' => ['/pegawai', $item->id],
                                                 'style' => 'display:inline'
                                             ]) !!}
-                                                {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i> Delete', array(
-                                                        'type' => 'submit',
-                                                        'class' => 'btn btn-danger btn-xs',
-                                                        'title' => 'Delete Pegawai',
-                                                        'onclick'=>'return confirm("Confirm delete?")'
-                                                )) !!}
+                                                
                                             {!! Form::close() !!}
                                         </td>
                                     </tr>

@@ -39,19 +39,14 @@
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->Pelajaran }}</td><td>{{ $item->Kelas }}</td><td>{{ $item->Jurusan }}</td>
                                         <td>
-                                            <a href="{{ url('/pelajaran/' . $item->id) }}" title="View Pelajaran"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                                            
                                             <a href="{{ url('/pelajaran/' . $item->id . '/edit') }}" title="Edit Pelajaran"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
                                             {!! Form::open([
-                                                'method'=>'DELETE',
+                                                
                                                 'url' => ['/pelajaran', $item->id],
                                                 'style' => 'display:inline'
                                             ]) !!}
-                                                {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i> Delete', array(
-                                                        'type' => 'submit',
-                                                        'class' => 'btn btn-danger btn-xs',
-                                                        'title' => 'Delete Pelajaran',
-                                                        'onclick'=>'return confirm("Confirm delete?")'
-                                                )) !!}
+
                                             {!! Form::close() !!}
                                         </td>
                                     </tr>

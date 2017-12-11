@@ -32,7 +32,6 @@ class PegawaiController extends Controller
         } else {
             $pegawai = Pegawai::paginate($perPage);
         }
-
         return view('pegawai.index', compact('pegawai'));
     }
 

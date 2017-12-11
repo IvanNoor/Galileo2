@@ -66,111 +66,11 @@
 										<?php $i+=1;?>
 									</td>
 
-								</tr>
+								</trx>
 								@endforeach	
 							</tbody>
 						</table>
 					</div><br>
-					<div class="col-md-6">
-						<div class="col-md-6">
-							<table >
-								<tbody>
-									<?php $n=0;$passing=0; ?>
-									@foreach($detail_nilai as $detail_nilai)
-									<tr>
-										<?php $n+=1; ?>
-										<td>{{$detail_nilai->Pelajaran}}</td>
-									</tr>
-									@endforeach					
-								</tbody>
-							</table>
-						</div>
-						<div class="col-md-6">
-							<table>
-								<tbody>
-									@for($j=0; $j<$n ; $j++)
-									<tr>
-										<?php $passing+=$nilaiTotal[$j]; ?>
-										<td>{{$nilaiTotal[$j]}}</td>
-									</tr>
-									@endfor
-									<?php $passingGrade = $passing/$n;?>
-								</tbody>
-							</table>
-						</div>
-
-						<div class="col-md-6">
-							<label>Passing Grade</label>
-						</div>
-						<div class="col-md-6">
-							<label>	{{$passingGrade}}</label>
-						</div> <br>
-						<div class="col-md-6" align="center">
-							<button type="button" class="btn btn-success " data-toggle="modal" data-target="#myModal">Check Universitas</button>
-						</div> 
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div><br><br>
-<div class="container">
-	<div class="col-md-10">
-		<div class="panel-heading" style="background-color: azure">
-			<div class="panel-body">
-				<table class="table table-striped">
-					<thead>
-						<tr>
-
-							<th>Univeritas</th>
-							<th>Fakultas</th>
-							<th>Prodi</th>
-							<th>Passing Grade</th>
-						</tr>
-					</thead>
-					<tbody>
-						@foreach($penjurusan as $penjurusan)
-						<tr>
-							<td>
-								{{$penjurusan->Universitas}}
-							</td>
-							<td>
-								{{$penjurusan->Fakultas}}
-							</td>
-							<td>
-								{{$penjurusan->Prodi}}
-							</td>
-							<td>
-								{{$penjurusan->PassingGrade}}
-							</td>
-						</tr>
-						@endforeach
-					</tbody>
-				</table>
-			</div>
-		</div>
-	</div>	
-</div>
-<!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
-      </div>
-      <div class="modal-body">
-        <p>Some text in the modal.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-  </div>
-</div>
-@endsection
+					@endsection
 
 

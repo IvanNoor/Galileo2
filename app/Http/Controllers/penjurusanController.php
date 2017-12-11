@@ -15,7 +15,7 @@ class penjurusanController extends Controller
 {
 
 
-    public function index(Request $request)
+    public function index()
     {
         $penjurusan = penjurusan::all();
         return view('penjurusan/index',['penjurusan' => $penjurusan]);
@@ -37,21 +37,11 @@ class penjurusanController extends Controller
 
        return redirect('penjurusan');
    }
+   public function show($id)
+    {
+        $penjurusan = penjurusan::findOrFail($id);
 
+        return view('penjurusan.show', compact('pegawai'));
+    }
 
-   public function edit($id)
-   {
-
-   }
-
-
-   public function update($id, Request $request)
-   {
-
-   }
-
-   public function destroy($id)
-   {
-
-   }
 }

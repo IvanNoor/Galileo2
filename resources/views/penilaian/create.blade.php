@@ -39,7 +39,7 @@
            @for($i=1; $i<=10; $i++)
            <div class="row"> 
              {{-- @for($j=0; $j<=20;$j+=10) --}}
-             <div class="col-sm-4">
+             <div class="col-sm-4 required" required >
               <label for="1">{{$i}}</label>
               <label class="radio-inline required" required=""><input type="radio" name="j_{{$i}}" value="A">A</label>
               <label class="radio-inline required" required=""><input type="radio" name="j_{{$i}}" value="B">B</label>
