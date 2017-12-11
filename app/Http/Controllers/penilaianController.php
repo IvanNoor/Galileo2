@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use DB; 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
 use App\siswa;
 use App\pelajaran;
@@ -27,11 +28,12 @@ class penilaianController extends Controller
 		$pelajaran = pelajaran::all();
 		return view('penilaian/create',['pelajaran' => $pelajaran]);
 	}
-	public function check_kode(){
+	public function check(){
 		$i = 0;
 		$siswa = siswa::all();
-		$penilaian = DB::table('penilaian')
+		$penilaian = penilaian::Penilaian2()
 		->groupBy('kode')
+		->orderby('pelajarans.pelajaran')
 		->get();
 
 		$kode = DB::table('penilaian')
@@ -39,14 +41,12 @@ class penilaianController extends Controller
 		->get()->toArray();
 
 		foreach ($kode as $kode) {
-		$kode = DB::table('penilaian')
-		->groupBy('kode')
-		->get()->toArray();
-		$i+=1;	
+			$kode = DB::table('penilaian')
+			->groupBy('kode')
+			->get()->toArray();
+			$i+=1;	
 		}
-			
-		
-		
+
 		return view('penilaian/check',['penilaian' => $penilaian,'siswa'=>$siswa]);	
 	}
 
@@ -55,10 +55,15 @@ class penilaianController extends Controller
 		$penilaian1 = penilaian::where('kode', 'LIKE', $request->kode)->paginate(1);
 		
 		if ($penilaian1->count()>0) {
-			dd(2);
+
 			return redirect()->back()->with('alert', 'Kode Soal Sudah Ada!');
 
 		}else{
+			for ($i=1; $i<=10; $i++) { 
+				if (!isset($request->{"j_".$i})) {
+					 return Redirect::back()->with('message', 'Data Harus diisi semua');
+				}
+			}
 			$kode_soal 					= new kode_soal;
 			$kode_soal->kode    		= $request->kode;
 			$kode_soal->id_pelajaran	= $request->pelajaran;
@@ -72,7 +77,8 @@ class penilaianController extends Controller
 				$penilaian->save();
 			}
 		}
-		return redirect('penilaian_siswa/check');
+
+		return Redirect::back()->with('message', 'Data Harus berhasil disimpan');
 	}
 	public function checking(Request $request){
 		//deklarasi variabel
@@ -184,8 +190,8 @@ class penilaianController extends Controller
 			])
 			->update([ 'nilai4' => $skor]);
 		}else{
-			return view('penilaian');
+			return redirect()->back();
 		}
-		return view('penilaian/create',['pelajaran' => $pelajaran]);
+		return view('penilaian/check',['pelajaran' => $pelajaran]);
 	}
 }

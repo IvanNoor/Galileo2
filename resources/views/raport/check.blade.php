@@ -1,4 +1,4 @@
-@extends('layouts.master')
+	@extends('layouts.master')
 
 @section('title','blog lalala')
 
@@ -7,9 +7,7 @@
 
 
 </script>
-<div class="alert alert-success">
-	<strong>Success!</strong> You ss <a href="#" class="alert-link">read this message</a>.
-</div>
+
 <div class="container">
 	<div class="row">
 		<div class="col-md-10">
@@ -28,7 +26,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<?php $i=0;?>
+							<?php $i=0;$passing=0;?>
 							@foreach($detail_nilai2 as $detail_nilai2)
 							<tr>
 								<td>
@@ -51,50 +49,74 @@
 								</td>
 								<td>
 									{{$nilaiTotal[$i]}}	
+									<?php $passing= $passing + $nilaiTotal[$i]; ?>
+
 									<?php $i+=1;?>
 								</td>
-								
 							</tr>
 							@endforeach	
+							<?php $passing = $passing/$i; ?>
 						</tbody>
-					</table>
+					</table><hr>
+					<div>
+
+						<label>Passing Grade = <?php echo number_format((float)$passing, 1, '.', ''); ?> </label>
+					</div>
 				</div>    
 			</div>
 
 		</div>
 	</div>
-</div><br><br>
-<div class="container" >
-	<div class="row">
-		<div class="col-md-6"></div>
-		<div class="col-md-4" style="background-color: skyblue">
-			<table>
-				<thead>
-					<tr>
-						<?php $n=0;$passing=0; ?>
-					@foreach($detail_nilai as $detail_nilai)
-						<?php $n+=1; ?>
-						<td>{{$detail_nilai->Pelajaran}}</td>
-					@endforeach
-					<td>Passing Grade </td>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						@for($j=0; $j<$n ; $j++)
-						<td>{{$nilaiTotal[$j]}}</td>
-						<?php $passing+=$nilaiTotal[$j]; ?>
-						@endfor
-						<?php $passingGrade = $passing/$n;?>
-						<td>{{$passingGrade}}</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-<a href="/raport/{{$detail_nilai2->id_siswa}}/penjurusan" class="btn btn-success " style="padding: 1px 15px;" role="button">Penjurusan</a>
-		<div class="col-md-2"></div>
-
+	<div>
+		
 	</div>
-	
+</div><br><br>
+
+
+<button type="button" class="btn btn-success " data-toggle="modal" data-target="#myModal">Check Universitas</button>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Penjurusan</h4>
+			</div>
+			<div class="modal-body">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+
+							<th>Univeritas</th>
+							<th>Fakultas</th>
+							<th>Prodi</th>
+							<th>Passing Grade</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach($penjurusan as $penjurusan)
+						<tr>
+							<td>
+								{{$penjurusan->Universitas}}
+							</td>
+							<td>
+								{{$penjurusan->Fakultas}}
+							</td>
+							<td>
+								{{$penjurusan->Prodi}}
+							</td>
+							<td>
+								{{$penjurusan->PassingGrade}}
+							</td>
+						</tr>
+						@endforeach
+					</tbody>
+				</table>
+			</div>	
+		</div>
+	</div>
 </div>
 @endsection

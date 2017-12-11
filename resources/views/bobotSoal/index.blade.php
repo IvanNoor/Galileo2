@@ -64,8 +64,11 @@
 							</tbody>
 						</table>
 					</div>    
+					<div class="col-md-12">
+						<div class="col-md-6"></div>
+						<div class="col-md-6">*semakin besar % bobot soal = semakin mudah soal</div>
+					</div>
 				</div>
-
 			</div>
 		</div>
 	</div>

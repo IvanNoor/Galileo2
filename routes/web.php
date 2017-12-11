@@ -19,7 +19,7 @@ Route::get('/', function () {
 Route::get('penilaian_siswa','penilaianController@index');//penilaian siswa //masih useles 
 Route::get('penilaian_siswa/create','penilaianController@create'); //route untuk create
 Route::post('penilaian_siswa','penilaianController@store'); 
-Route::get('penilaian_siswa/check','penilaianController@check_kode');
+Route::get('penilaian_siswa/check','penilaianController@check');
 Route::post('penilaian_siswa/check','penilaianController@checking');
 
 Route::get('siswa','siswaController@index');//siswa
@@ -37,7 +37,9 @@ Route::get('bobot_soal/{id}/search','bobotController@search');
 //admin
 Route::get('penjurusan','penjurusanController@index');//penjurusan
 Route::get('penjurusan/create','penjurusanController@create');
-Route::post('penjurusan','penjurusanController@store'); 
+Route::post('penjurusan','penjurusanController@store');
+Route::get('penjurusan/{id}/edit','penjurusanController@edit');
+
 
 Route::resource('pegawai', 'PegawaiController');
 Route::resource('pelajaran', 'PelajaranController');
@@ -53,3 +55,11 @@ Route::resource('posts', 'PostsController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+
+
+
+
+//kurang edit penjurusan, edit siswa
